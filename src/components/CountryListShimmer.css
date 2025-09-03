@@ -1,0 +1,26 @@
+.shimmer-card{
+    height: 350px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.flag-C{
+    width: 250px;
+    height: 160px;
+    border-radius: 5px;
+     background-color: #706e6e;
+}
+
+.card-T{
+    width: 218px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #706e6e;
+}
+
+.Name-P{
+    width: 218px;
+    height: 21.6px;
+    border-radius: 5px;
+    background-color: #706e6e;
+}
