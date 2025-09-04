@@ -21,8 +21,8 @@ export default function CountryDetail() {
 
   function updateCountryData(data){
      setCountryData({
-          name: data.name.common,
-          nativeName: Object.values(data.name.nativeName)[0].common,
+          name: data.name.common || data.name,
+          nativeName: Object.values(data.name.nativeName || {})[0]?.common,
           population: data.population,
           region: data.region,
           subregion: data.subregion,
@@ -30,8 +30,8 @@ export default function CountryDetail() {
           flag: data.flags.svg,
           tld: data.tld,
           borders: [],
-          languages: Object.values(data.languages).join(", "),
-          currencies: Object.values(data.currencies)
+          languages: Object.values(data.languages || {}).join(", "),
+          currencies: Object.values(data.currencies || {})
             .map((currency) => currency.name)
             .join(", "),
         });
@@ -80,7 +80,7 @@ export default function CountryDetail() {
             <h1>{countryData.name}</h1>
             <div className="details-text">
               <p>
-                <b>Native Name: {countryData.nativeName}</b>
+                <b>Native Name: {countryData.nativeName || countryData.name}</b>
                 <span className="native-name"></span>
               </p>
               <p>
@@ -98,7 +98,7 @@ export default function CountryDetail() {
                 <span className="sub-region"></span>
               </p>
               <p>
-                <b>Capital: {countryData.capital.join(", ")}</b>
+                <b>Capital: {countryData.capital?.join(", ")}</b>
                 <span className="capital"></span>
               </p>
               <p>
